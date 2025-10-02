@@ -39,11 +39,12 @@ public class ReservationService {
     }
 
     public Reservation createReservation(Reservation reservationToCreate) {
-        if (reservationToCreate.id() != null) {
-            throw new IllegalArgumentException("Id should be empty");
-        }
         if (reservationToCreate.status() != null) {
             throw new IllegalArgumentException("Status should be empty");
+        }
+        // если дата конца не после даты начала
+        if (!reservationToCreate.endDate().isAfter(reservationToCreate.startDate())) {
+            throw new IllegalArgumentException("Start date must be 1 day earlier than end date ");
         }
         var entityToSave = new ReservationEntity(
                 null,
@@ -68,6 +69,10 @@ public class ReservationService {
 
         if (reservationEntity.getStatus() != ReservationStatus.PENDING) {
             throw new IllegalStateException("Cannot modify reservation with status=" + reservationEntity.getStatus());
+        }
+        // если дата конца не после даты начала
+        if (!reservationToUpdate.endDate().isAfter(reservationToUpdate.startDate())) {
+            throw new IllegalArgumentException("Start date must be 1 day earlier than end date ");
         }
 
         var reservationToSave = new ReservationEntity(
