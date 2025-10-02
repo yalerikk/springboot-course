@@ -56,18 +56,13 @@ public class ReservationController {
     }
 
     @DeleteMapping("/{id}/cancel")
-    public ResponseEntity<Void> cancelReservation(
+    public ResponseEntity<Void> deleteReservation(
             @PathVariable("id") Long id
     ) {
-        log.info("Called cancelReservation id={}", id);
-        try {
-            reservationService.cancelReservation(id);
-            return ResponseEntity.ok()
-                    .build();
-        } catch (NoSuchElementException e) {
-            return ResponseEntity.status(404)
-                    .build();
-        }
+        log.info("Called deleteReservation: id={}", id);
+        reservationService.cancelReservation(id);
+        return ResponseEntity.ok()
+                .build();
     }
 
     // подтверждение бронирования
