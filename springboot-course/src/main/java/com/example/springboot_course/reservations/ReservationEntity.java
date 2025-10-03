@@ -1,4 +1,4 @@
-package com.example.springboot_course;
+package com.example.springboot_course.reservations;
 
 import jakarta.persistence.*;
 
@@ -31,7 +31,14 @@ public class ReservationEntity {
     public ReservationEntity() {
     }
 
-    public ReservationEntity(Long id, Long userId, Long roomId, LocalDate startDate, LocalDate endDate, ReservationStatus status) {
+    public ReservationEntity(
+            Long id,
+            Long userId,
+            Long roomId,
+            LocalDate startDate,
+            LocalDate endDate,
+            ReservationStatus status
+    ) {
         this.id = id;
         this.userId = userId;
         this.roomId = roomId;

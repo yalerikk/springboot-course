@@ -1,4 +1,4 @@
-package com.example.springboot_course;
+package com.example.springboot_course.web;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;

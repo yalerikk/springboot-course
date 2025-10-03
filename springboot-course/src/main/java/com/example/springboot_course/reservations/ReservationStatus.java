@@ -1,4 +1,4 @@
-package com.example.springboot_course;
+package com.example.springboot_course.reservations;
 
 public enum ReservationStatus {
     PENDING,

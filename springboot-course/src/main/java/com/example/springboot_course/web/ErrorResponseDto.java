@@ -1,4 +1,4 @@
-package com.example.springboot_course;
+package com.example.springboot_course.web;
 
 import java.time.LocalDateTime;
 

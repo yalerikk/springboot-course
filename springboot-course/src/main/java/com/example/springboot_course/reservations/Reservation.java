@@ -1,4 +1,4 @@
-package com.example.springboot_course;
+package com.example.springboot_course.reservations;
 
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
